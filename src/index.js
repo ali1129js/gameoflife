@@ -2,7 +2,7 @@
  * @Author: Ali Ismail
  * @Date:   2018-04-19T16:12:59+02:00
  * @Last modified by:   Ali Ismail
- * @Last modified time: 2018-04-19T16:55:44+02:00
+ * @Last modified time: 2018-04-19T17:07:36+02:00
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -23,7 +23,7 @@ class Box extends React.Component {
 }
 class Grid extends React.Component {
   render(){
-    const width = this.props.cols * 14;
+    const width = this.props.cols * 16;
     var rowsArr = [];
     var boxClass = "";
 
@@ -61,6 +61,13 @@ class Main extends React.Component {
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
     }
   }
+  selectBox = (row, col) => {
+    let gridCopy = arrayClone(this.state.gridFull)
+    gridCopy[row][col] = !gridCopy[row][col]
+    this.setState({
+      gridFull: gridCopy
+    })
+  }
   render(){
     return (
       <div>
@@ -75,5 +82,9 @@ class Main extends React.Component {
       </div>
     )
   }
+}
+// we clone the array because it's a nested array, otherwise we Array.splice
+function arrayClone(arr) {
+  return JSON.parse(JSON.stringify(arr))
 }
 ReactDOM.render(<Main />, document.getElementById('root'))
