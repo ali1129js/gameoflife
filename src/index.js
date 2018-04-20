@@ -2,7 +2,7 @@
  * @Author: Ali Ismail
  * @Date:   2018-04-19T16:12:59+02:00
  * @Last modified by:   Ali Ismail
- * @Last modified time: 2018-04-20T21:54:09+02:00
+ * @Last modified time: 2018-04-20T21:57:15+02:00
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -24,13 +24,13 @@ class Box extends React.Component {
 }
 class Grid extends React.Component {
   render(){
-    const width = this.props.cols * 16;
-    var rowsArr = [];
-    var boxClass = "";
+    const width = this.props.cols * 16
+    var rowsArr = []
+    var boxClass = ""
 
     for (let i=0; i < this.props.rows; i++){
       for (let j=0; j < this.props.cols; j++){
-        let boxId = i + "_" + j;
+        let boxId = i + "_" + j
         boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
         rowsArr.push(
           <Box
@@ -54,9 +54,9 @@ class Grid extends React.Component {
 class Main extends React.Component {
   constructor(){
     super()
-    this.speed = 100;
-    this.rows = 30;
-    this.cols = 50;
+    this.speed = 100
+    this.rows = 30
+    this.cols = 50
     this.state = {
       generation:0,
       gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
@@ -70,15 +70,12 @@ class Main extends React.Component {
     })
   }
   seed = () => {
-    console.log("seed")
     let gridCopy = arrayClone(this.state.gridFull)
     for (let i=0; i < this.rows; i++) {
       for (let j=0; j < this.cols; j++) {
         //randomlly chose something!
         if (Math.floor(Math.random() * 4) === 1) {
-
-          gridCopy[i][j] = true;
-          console.log("rand")
+          gridCopy[i][j] = true
         }
       }
     }
@@ -87,7 +84,7 @@ class Main extends React.Component {
     })
   }
   componentDidMount(){
-    this.seed();
+    this.seed()
   }
   render(){
     return (
