@@ -2,11 +2,12 @@
  * @Author: Ali Ismail
  * @Date:   2018-04-19T16:12:59+02:00
  * @Last modified by:   Ali Ismail
- * @Last modified time: 2018-04-19T17:07:36+02:00
+ * @Last modified time: 2018-04-20T21:54:09+02:00
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
+
 class Box extends React.Component {
   selectBox = () => {
     this.props.selectBox(this.props.row,this.props.col)
@@ -67,6 +68,26 @@ class Main extends React.Component {
     this.setState({
       gridFull: gridCopy
     })
+  }
+  seed = () => {
+    console.log("seed")
+    let gridCopy = arrayClone(this.state.gridFull)
+    for (let i=0; i < this.rows; i++) {
+      for (let j=0; j < this.cols; j++) {
+        //randomlly chose something!
+        if (Math.floor(Math.random() * 4) === 1) {
+
+          gridCopy[i][j] = true;
+          console.log("rand")
+        }
+      }
+    }
+    this.setState({
+      gridFull: gridCopy
+    })
+  }
+  componentDidMount(){
+    this.seed();
   }
   render(){
     return (
