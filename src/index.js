@@ -2,7 +2,7 @@
  * @Author: Ali Ismail
  * @Date:   2018-04-19T16:12:59+02:00
  * @Last modified by:   Ali Ismail
- * @Last modified time: 2018-04-20T21:57:15+02:00
+ * @Last modified time: 2018-04-21T11:29:03+02:00
  */
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -83,8 +83,38 @@ class Main extends React.Component {
       gridFull: gridCopy
     })
   }
-  componentDidMount(){
+  playButton = () => {
+  clearInterval(this.intervalId);
+  this.intervalId = setInterval(this.play, this.speed);
+}
+  play = () => {
+  let g = this.state.gridFull
+  let g2 = arrayClone(this.state.gridFull)
+    //See README for info on the rules of the game.
+  for (let i = 0; i < this.rows; i++) {
+    for (let j = 0; j < this.cols; j++) {
+      let count = 0
+      if (i > 0) if (g[i - 1][j]) count++
+      if (i > 0 && j > 0) if (g[i - 1][j - 1]) count++
+      if (i > 0 && j < this.cols - 1) if (g[i - 1][j + 1]) count++
+      if (j < this.cols - 1) if (g[i][j + 1]) count++
+      if (j > 0) if (g[i][j - 1]) count++
+      if (i < this.rows - 1) if (g[i + 1][j]) count++
+      if (i < this.rows - 1 && j > 0) if (g[i + 1][j - 1]) count++
+      if (i < this.rows - 1 && this.cols - 1) if (g[i + 1][j + 1]) count++
+      if (g[i][j] && (count < 2 || count > 3)) g2[i][j] = false
+      if (!g[i][j] && count === 3) g2[i][j] = true
+    }
+  }
+  this.setState({
+    gridFull: g2,
+    generation: this.state.generation + 1
+  })
+
+}
+componentDidMount(){
     this.seed()
+    this.playButton()
   }
   render(){
     return (
