@@ -1,7 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Following https://www.youtube.com/watch?v=PM0_Er3SvFQ
-Many thanks to [Beau Carnes](https://github.com/beaucarnes)
+##Following https://www.youtube.com/watch?v=PM0_Er3SvFQ
+
+### Many thanks to [Beau Carnes](https://github.com/beaucarnes)
 
 # Conway's Game of Life
 
