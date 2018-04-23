@@ -1,12 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
-## Following https://www.youtube.com/watch?v=PM0_Er3SvFQ
+## Following [React Project Tutorial - Game of Life](https://www.youtube.com/watch?v=PM0_Er3SvFQ)
 
 ### Many thanks to [Beau Carnes](https://github.com/beaucarnes)
 
-# Conway's Game of Life
+# [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life
 
 another example of the game
 https://codepen.io/freeCodeCamp/pen/reGdqx
