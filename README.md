@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Following [React Project Tutorial - Game of Life](https://www.youtube.com/watch?v=PM0_Er3SvFQ)
 
-### Many thanks to [Beau Carnes](https://github.com/beaucarnes)
+### Many thanks to [Beau Carnes](https://github.com/beaucarnes) [@CarnesBeau](https://twitter.com/carnesbeau)
 
 # [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
